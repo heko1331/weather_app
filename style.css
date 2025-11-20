@@ -53,6 +53,9 @@ h1 {
     font-size: 3dvw;
     letter-spacing: 0.3dvh;
     font-weight: bold;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 input {
@@ -67,33 +70,133 @@ input {
 
 }
 
-.weather{
+.weather {
     margin-top: 1dvh;
     display: flex;
     flex-direction: row;
     justify-content: space-around; 
     align-items: start;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: 1dvh;
 }
 
-.kartinka{
+.kartinka {
     width: 30dvh;
+    min-width: 0;
     height: 30dvh;
-    background: #1572C8;
     border-radius: 3dvh;
     position: relative;
-    background: url(images/sunnyPhoto.png) no-repeat;
-    background-size:  cover;
+    background: url(images/sunnyblat.jpg) no-repeat;
+    background-size: cover;
     padding-left: 1.5dvh;
     padding-top: 1.5dvh;
     font-size: 3.3dvh;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    /* background-color: black */
+    flex-shrink: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* .kartinka, .opisanye{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    align-items: center;
+.kartinka > span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+/* .kartinka > span {
+    position: absolute;
+    right: 0;
+
 } */
+
+.opisanye {
+    flex: 1;
+    min-width: 0;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.opisanye .date {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.opisanye h2 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.opisanye ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+}
+
+.opisanye li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.opisanye li span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+    .container {
+        max-width: 95vw;
+        padding-left: 2dvh;
+        padding-right: 2dvh;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 5vw, 3dvw);
+    }
+
+    input {
+        font-size: clamp(1rem, 4vw, 2.3dvw);
+    }
+
+    .weather {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .kartinka {
+        width: min(30dvh, 80vw);
+        height: min(30dvh, 80vw);
+        font-size: clamp(1.5rem, 4vh, 3.3dvh);
+    }
+
+    .opisanye {
+        width: 100%;
+    }
+
+    .opisanye h2 {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .opisanye li {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

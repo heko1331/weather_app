@@ -76,6 +76,21 @@ input {
     flex-wrap: nowrap;
 }
 
+.kartinka{
+    width: 30dvh;
+    height: 30dvh;
+    background: #1572C8;
+    border-radius: 3dvh;
+    position: relative;
+    background: url(images/sunnyPhoto.png) no-repeat;
+    background-size:  cover;
+    padding-left: 1.5dvh;
+    padding-top: 1.5dvh;
+    font-size: 3.3dvh;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    /* background-color: black */
+}
+
 /* .kartinka, .opisanye{
     display: flex;
     flex-direction: row;

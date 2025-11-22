@@ -1,6 +1,6 @@
 const api_key = '36da10c2410c9d4f8e409c462e441f1c';
 const input = document.querySelector('input');
-const karinka_temp = document.querySelector('#karinka_temp');
+const kartinka_temp = document.querySelector('#kartinka_temp');
 const pogoda_date = document.querySelector('.date');
 const weather_description = document.querySelector('#weather_description');
 const min_temp = document.querySelector('#min_temp');
@@ -23,7 +23,10 @@ const getWeather = async () => {
     console.log("dannye blat polucheny")
     const json_data = await weather.json()
     console.log(json_data);
-    min_temp.innerHTML = json_data.main.temp_min
+    min_temp.innerHTML = Math.ceil(json_data.main.temp_min)
+    max_temp.innerHTML = Math.ceil(json_data.main.temp_max)
+    ochuchenye.innerHTML = Math.ceil(json_data.main.feels_like)
+    kartinka_temp.innerHTML = Math.ceil(json_data.main.feels_like)
     }
 
     catch (error) {

@@ -1,4 +1,4 @@
-const key = '36da10c2410c9d4f8e409c462e441f1c';
+const api_key = '36da10c2410c9d4f8e409c462e441f1c';
 const input = document.querySelector('input');
 const karinka_temp = document.querySelector('#karinka_temp');
 const pogoda_date = document.querySelector('.date');
@@ -12,11 +12,23 @@ const btn = document.querySelector(".btn");
 //     console.log(event);
 // }
 
-btn.addEventListener("click", a);
 
-massiv = [];
-function a(event){
-    let znachenye = input.value;
-    input.value = '';
-    massiv.push(znachenye);
+
+const getWeather = async () => {
+    try{
+    const city = input.value;
+    console.log("ozhidanye otveta servera");
+    
+    const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=36da10c2410c9d4f8e409c462e441f1c&units=metric`);
+    console.log("dannye blat polucheny")
+    const json_data = await weather.json()
+    console.log(json_data);
+    min_temp.innerHTML = json_data.main.temp_min
+    }
+
+    catch (error) {
+        console.log("ERROR:", error.message);
+    }
 }
+
+btn.addEventListener("click", getWeather);

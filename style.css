@@ -27,8 +27,8 @@ li {
 
 img {    
     margin-top: 2dvh;
-    width: 30dvh;
-    height: 30dvh;
+    width: 20dvh;
+    height: 20dvh;
     background-size: cover;
 }
 
@@ -193,8 +193,8 @@ button {
     }
 
     .kartinka {
-        width: min(30dvh, 80vw);
-        height: min(30dvh, 80vw);
+        width: min(20dvh, 80vw);
+        height: min(20dvh, 80vw);
         font-size: clamp(1.5dvh, 4vh, 3.3dvh);
     }
 
@@ -221,4 +221,14 @@ button {
         flex-direction: column;
         gap: 0.5dvh;
     }
+}
+
+
+ul{
+    display: flex;
+    flex-direction: column;
+}
+li{
+    display: flex;
+    white-space: nowrap;
 }
